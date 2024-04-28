@@ -1,5 +1,4 @@
 import requests
-import yaml
 import json
 import os
 
@@ -21,8 +20,8 @@ def make_weather_api_call(lat: str, lon: str, endpoint: str, api_key: str) -> di
 
 if __name__ == "__main__":
 
-    with open(os.path.dirname(__file__) + '/../secrets.yaml') as f:
-        api_key = yaml.safe_load(f)['api_key']
+    with open(os.path.dirname(__file__) + '/../.env') as f:
+        api_key = f.readline().split("=")[-1].strip("\'\"")
     endpoints = ["forecast", "weather"]
     test_cities = [
         {

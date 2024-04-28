@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import "./App.css";
 import SearchBar from "./components/SearchBar";
 import { city } from "./interfaces/Interfaces";
@@ -6,15 +6,16 @@ import { city } from "./interfaces/Interfaces";
 import { cities } from "country-cities";
 
 function App() {
+  const api_key: string = import.meta.env.VITE_API_KEY;
   const [dataFromChild, setDataFromChild] = useState<city>();
 
-  function handleDataFromChild(data: city) {
+  const handleDataFromChild = (data: city) => {
     setDataFromChild(data);
-  }
+  };
 
-  function getAllCities() {
+  const getAllCities = () => {
     return cities.all();
-  }
+  };
 
   return (
     <>

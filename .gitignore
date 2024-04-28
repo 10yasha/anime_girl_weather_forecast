@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # secrets
-secrets.yaml
+.env
