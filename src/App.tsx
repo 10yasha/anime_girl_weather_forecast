@@ -10,7 +10,7 @@ function App() {
   }
 
   function getAllCities() {
-    return cities.all().slice(1, 10);
+    return cities.all();
   }
 
   return (

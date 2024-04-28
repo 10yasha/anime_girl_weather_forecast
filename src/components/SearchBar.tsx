@@ -11,21 +11,38 @@ export default function SearchBar({
   placeholder: string;
   data: city[];
 }) {
-  const [filteredData, setFilteredData] = useState([]);
+  const [filteredCities, setFilteredCities] = useState<city[]>([]);
+
+  const handleCitySearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let search = e.target.value.toLowerCase();
+
+    let updatedCities = data.filter((val) => {
+      return val.name.toLowerCase().includes(search);
+    });
+
+    if (updatedCities.length > 10) updatedCities.slice(0, 10);
+    setFilteredCities(updatedCities);
+  };
   return (
     <div className="search">
       <div className="searchInputs">
-        <input type="text" placeholder={placeholder} />
+        <input
+          type="text"
+          placeholder={placeholder}
+          onChange={handleCitySearch}
+        />
         <div className="searchIcon">
           <SearchIcon />
         </div>
       </div>
-      {filteredData.length != 0 && (
+      {filteredCities.length != 0 && (
         <div className="searchResult">
-          {data.map((value) => {
+          {filteredCities.map((val) => {
             return (
               <a className="searchItem" href="#">
-                <p>{value.name}</p>
+                <p>
+                  {val.name} {val.stateCode} {val.countryCode}
+                </p>
               </a>
             );
           })}
