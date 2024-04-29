@@ -1,20 +1,22 @@
 import React, { useState } from "react";
-import { city } from "../interfaces/Interfaces";
+import { City } from "../interfaces/Interfaces";
 import "./SearchBar.css";
 
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 
+interface SearchBarProps {
+  placeholder: string;
+  allCities: City[];
+  callback: (data: City) => void;
+}
+
 export default function SearchBar({
   placeholder,
   allCities,
   callback,
-}: {
-  placeholder: string;
-  allCities: city[];
-  callback: (data: city) => void;
-}) {
-  const [filteredCities, setFilteredCities] = useState<city[]>([]);
+}: SearchBarProps) {
+  const [filteredCities, setFilteredCities] = useState<City[]>([]);
   const [searchEntered, setSearchEntered] = useState<string>("");
 
   const handleCitySearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,7 +47,7 @@ export default function SearchBar({
     setSearchEntered("");
   };
 
-  const handleClick = (data: city) => {
+  const handleClick = (data: City) => {
     callback(data);
     clearInput();
   };
