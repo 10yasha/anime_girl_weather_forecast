@@ -16,10 +16,10 @@ type WeatherSubField = {
 };
 
 type MainSubField = {
-  temp: number; // kelvin
-  feels_like: number; // kelvin
-  temp_min: number; // kelvin
-  temp_max: number; // kelvin
+  temp: number; // celsius
+  feels_like: number; // celsius
+  temp_min: number; // celsius
+  temp_max: number; // celsius
   pressure: number; // millibars
   humidity: number; // percent?
   [x: string]: any;
