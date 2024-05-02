@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import { WiHumidity } from "react-icons/wi";
-import { FiWind } from "react-icons/fi";
-import { TiWeatherPartlySunny } from "react-icons/ti";
-import {
-  BsFillSunFill,
-  BsCloudyFill,
-  BsFillCloudRainFill,
-  BsCloudFog2Fill,
-} from "react-icons/bs";
+
+import GoogleMapReact from "google-map-react";
 
 import "./App.css";
 import SearchBar from "./components/SearchBar";
+import AnimeWeatherAnchor from "./components/AnimeWeatherAnchor";
+import WeatherDisplay from "./components/WeatherDisplay";
+import ForecastDisplay from "./components/ForecastDisplay";
+import MapDisplay from "./components/MapDisplay";
 import {
   City,
   EndpointType,
@@ -28,7 +25,7 @@ export default function App() {
 
   const [cityOfInterest, setCityOfInterest] = useState<City | null>(null);
   const [weatherData, setWeatherData] = useState<WeatherDataProps | null>(null);
-  const [ForecastData, setForecastData] = useState<ForecastDataProps | null>(
+  const [forecastData, setForecastData] = useState<ForecastDataProps | null>(
     null
   );
 
@@ -70,7 +67,6 @@ export default function App() {
   };
 
   const callWeatherApi = async (lat: string, lon: string) => {
-    console.log("callWeatherApi");
     setWeatherData(
       (await callWeatherApiEndpoint(lat, lon, "weather")) as WeatherDataProps
     );
@@ -79,83 +75,46 @@ export default function App() {
     );
   };
 
-  const iconChanger = (weather: string) => {
-    let iconElement: React.ReactNode;
-    let iconColor: string;
-
-    switch (weather) {
-      case "Rain":
-        iconElement = <BsFillCloudRainFill />;
-        iconColor = "#272829";
-        break;
-
-      case "Clear":
-        iconElement = <BsFillSunFill />;
-        iconColor = "#FFC436";
-        break;
-      case "Clouds":
-        iconElement = <BsCloudyFill />;
-        iconColor = "#102C57";
-        break;
-
-      case "Mist":
-        iconElement = <BsCloudFog2Fill />;
-        iconColor = "#279EFF";
-        break;
-      default:
-        iconElement = <TiWeatherPartlySunny />;
-        iconColor = "#7B2869";
-    }
-
-    return (
-      <span className="icon" style={{ color: iconColor }}>
-        {iconElement}
-      </span>
-    );
-  };
-
   return (
     <>
-      <div className="App">
-        <SearchBar
-          placeholder="Enter a City..."
-          allCities={getAllCities()}
-          callback={handleSearch}
-        />
-        <div className="a">
+      <div className="app">
+        <div>
+          <SearchBar
+            placeholder="Enter a City..."
+            allCities={getAllCities()}
+            callback={handleSearch}
+          />
+          <MapDisplay />
+        </div>
+        <div className="weather-display">
           {cityOfInterest !== null && (
             <div>
-              {weatherData && (
+              {weatherData && forecastData && (
                 <>
-                  <div className="weatherArea">
-                    <h3>{cityOfInterest.name}</h3>
-                    <span>{cityOfInterest.countryCode}</span>
+                  <div className="middle-section">
+                    <div className="searched-city-name">
+                      <h1>
+                        {cityOfInterest.name} {cityOfInterest.countryCode}
+                      </h1>
+                    </div>
+                    <div className="current-weather">
+                      <WeatherDisplay
+                        cityOfInterest={cityOfInterest}
+                        weatherData={weatherData}
+                      />
+                      <AnimeWeatherAnchor />
+                    </div>
                   </div>
-
-                  <div className="bottomInfoArea">
-                    <div className="icon">
-                      {iconChanger(weatherData.weather[0].main)}
-                    </div>
-                    <h1>{weatherData.main.temp.toFixed(0)}</h1>
-                    <h2>{weatherData.weather[0].main}</h2>
-                    <div className="humidityLevel">
-                      <WiHumidity className="windIcon" />
-                      <div className="humidInfo">
-                        <h1>{weatherData.main.humidity}%</h1>
-                        <p>Humidity</p>
-                      </div>
-                    </div>
-
-                    <div className="wind">
-                      <FiWind className="windIcon" />
-                      <div className="humidInfo">
-                        <h1>{weatherData.wind.speed}km/h</h1>
-                        <p>Wind speed</p>
-                      </div>
-                    </div>
+                  <div className="bottom-section">
+                    <ForecastDisplay />
                   </div>
                 </>
               )}
+            </div>
+          )}
+          {cityOfInterest == null && (
+            <div>
+              <AnimeWeatherAnchor />
             </div>
           )}
         </div>
