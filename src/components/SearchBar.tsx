@@ -29,9 +29,11 @@ export default function SearchBar({
 
     let count = 0;
     let updatedCities = allCities.filter((val) => {
+      // replace non-alpha letter likes è -> e
       let normalizedName = val.name
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "");
+      // early exit on count = 20, necessary optimization else search too slow
       if (count < 20 && normalizedName.toLowerCase().includes(search)) {
         count++;
         return true;

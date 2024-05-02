@@ -26,12 +26,12 @@ type MainSubField = {
 };
 
 type WindSubField = {
-  speed: number; // km/hr?
+  speed: number; // km/hr
   [x: string]: any;
 };
 
 type CloudsSubField = {
-  all: number; // percent?
+  all: number; // percent
 };
 
 export interface WeatherDataProps {
@@ -39,7 +39,7 @@ export interface WeatherDataProps {
   weather: WeatherSubField[];
   clouds: CloudsSubField;
   wind: WindSubField;
-  visibility: number; // meters?
+  visibility: number; // meters
   [x: string]: any;
 }
 
