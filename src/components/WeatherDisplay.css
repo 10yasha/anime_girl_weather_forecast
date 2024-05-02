@@ -1,40 +1,23 @@
-
-
 .weather-info {
-    background-color: #ffffff7d;
-    border-radius: 12px;
-    padding: 2rem;
-    top: 50%;
-    left: 50%;
-    flex: 2;
-    box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
-    box-sizing: border-box;
-    color: rgba(0, 0, 0, 0.8);
-    background-blend-mode: overlay;
-    justify-content: space-between;
+  background-color: #ffffff7d;
+  border-radius: 12px;
+  padding: 2rem;
+  top: 50%;
+  left: 50%;
+  flex: 2;
+  box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.8);
+  background-blend-mode: overlay;
+  text-align: center;
 }
 
-/* .weatherInfo {
-    display: inline-block;
-    align-items: center;
-    justify-content: space-around;
-    font-family: "Nunito", sans-serif;
-    background: linear-gradient(
-    90deg,
-    rgba(243, 255, 253, 1) 0%,
-    rgba(253, 255, 232, 1) 100%
-      );
-    border-radius: 12px;
-  padding: 10px;
-  }
-  
-  .humidityLevel, .wind {
-    display: flex;
-    align-items: center;
-    margin: 0 20px;
-  
-    .humidIcon {
-      font-size: 3rem;
-    }
-  }
-   */
+.additional-weather-info {
+  display: flex;
+  align-items: center;
+}
+
+.additional-info-item {
+  flex: 1;
+  width: 0;
+}

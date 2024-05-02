@@ -98,15 +98,12 @@ export default function App() {
                       </h1>
                     </div>
                     <div className="current-weather">
-                      <WeatherDisplay
-                        cityOfInterest={cityOfInterest}
-                        weatherData={weatherData}
-                      />
+                      <WeatherDisplay weatherData={weatherData} />
                       <AnimeWeatherAnchor />
                     </div>
                   </div>
                   <div className="bottom-section">
-                    <ForecastDisplay />
+                    <ForecastDisplay forecastData={forecastData} />
                   </div>
                 </>
               )}

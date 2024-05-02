@@ -1,3 +1,19 @@
 .forecast-info {
-    text-align: center;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: 600px;
+  height: 200px;
+  
+}
+
+.forecast-info .forecast-item {
+  flex: 0 0 auto;
+  background-color: #ffffff7d;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
+  text-align: center;
+  margin: 5px;
+  width: 150px;
+  height: 180px;
 }

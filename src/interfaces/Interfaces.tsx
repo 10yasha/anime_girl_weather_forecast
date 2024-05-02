@@ -40,6 +40,7 @@ export interface WeatherDataProps {
   clouds: CloudsSubField;
   wind: WindSubField;
   visibility: number; // meters
+  dt_txt?: string;
   [x: string]: any;
 }
 
