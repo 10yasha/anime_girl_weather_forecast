@@ -1,4 +1,9 @@
-.anime-gif {
+.anime-gif-container {
     flex: 1;
-    padding: 15px;
+    padding: 15px;   
+}
+
+.anime-gif {
+    width:200px;
+    height:150px;
 }

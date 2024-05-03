@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-
-import GoogleMapReact from "google-map-react";
+import { useState } from "react";
 
 import "./App.css";
 import SearchBar from "./components/SearchBar";
@@ -19,7 +17,7 @@ import axios from "axios";
 import { cities } from "country-cities";
 
 export default function App() {
-  const api_key: string = import.meta.env.VITE_API_KEY;
+  const api_key: string = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
   const api_endpoint = "https://api.openweathermap.org/data/2.5/";
   // const kelvinToCelsius = -273.15;
 
@@ -30,11 +28,10 @@ export default function App() {
   );
 
   const handleSearch = async (data: City) => {
-    console.log("handleSearch");
     setCityOfInterest(data);
     await callWeatherApi(
-      String(Number(data.latitude).toFixed(2)),
-      String(Number(data.longitude).toFixed(2))
+      parseFloat(data.latitude).toFixed(2),
+      parseFloat(data.longitude).toFixed(2)
     );
   };
 
@@ -47,11 +44,6 @@ export default function App() {
     lon: string,
     endpoint: EndpointType
   ) => {
-    console.log("callWeatherApiEndpoint");
-    console.log(
-      api_endpoint +
-        `${endpoint}?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`
-    );
     try {
       const url =
         api_endpoint +
@@ -84,7 +76,6 @@ export default function App() {
             allCities={getAllCities()}
             callback={handleSearch}
           />
-          <MapDisplay />
         </div>
         <div className="weather-display">
           {cityOfInterest !== null && (
@@ -99,7 +90,17 @@ export default function App() {
                     </div>
                     <div className="current-weather">
                       <WeatherDisplay weatherData={weatherData} />
-                      <AnimeWeatherAnchor />
+                      <div className="right-panel">
+                        <AnimeWeatherAnchor />
+                        <MapDisplay
+                          lat={parseFloat(
+                            parseFloat(cityOfInterest.latitude).toFixed(2)
+                          )}
+                          lon={parseFloat(
+                            parseFloat(cityOfInterest.longitude).toFixed(2)
+                          )}
+                        />
+                      </div>
                     </div>
                   </div>
                   <div className="bottom-section">
