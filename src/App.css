@@ -24,7 +24,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: row;
-  min-width: 500px;
+  min-width: 600px;
 }
 
 .right-panel {

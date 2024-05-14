@@ -39,6 +39,7 @@ input:focus {
   overflow: hidden;
   overflow-y: auto;
   position: absolute;
+  z-index: 2;
 }
 
 .searchResult::-webkit-scrollbar {

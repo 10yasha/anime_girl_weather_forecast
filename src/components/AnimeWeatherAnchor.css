@@ -1,9 +1,21 @@
-.anime-gif-container {
+.weather-anchor {
     flex: 1;
-    padding: 15px;   
+    flex-grow: 1;
+    padding: 15px;
 }
 
+.anime-gif-container {
+    position: relative;
+ }
+
 .anime-gif {
-    width:200px;
-    height:150px;
+    width: 200px;
+    height: 150px;
+}
+
+.tv-overlay {
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    z-index: 1;
 }

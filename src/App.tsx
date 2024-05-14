@@ -91,7 +91,7 @@ export default function App() {
                     <div className="current-weather">
                       <WeatherDisplay weatherData={weatherData} />
                       <div className="right-panel">
-                        <AnimeWeatherAnchor />
+                        <AnimeWeatherAnchor currentCity={cityOfInterest.name} />
                         <MapDisplay
                           lat={parseFloat(
                             parseFloat(cityOfInterest.latitude).toFixed(2)
@@ -112,7 +112,7 @@ export default function App() {
           )}
           {cityOfInterest == null && (
             <div>
-              <AnimeWeatherAnchor />
+              <AnimeWeatherAnchor currentCity={""} />
             </div>
           )}
         </div>
