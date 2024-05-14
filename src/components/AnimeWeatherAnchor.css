@@ -2,6 +2,7 @@
     flex: 1;
     flex-grow: 1;
     padding: 15px;
+    margin: 30px;
 }
 
 .anime-gif-container {
@@ -14,8 +15,10 @@
 }
 
 .tv-overlay {
-    width: 200px;
-    height: 150px;
+    left: -20px;
+    top: -20px;
+    width: 240px;
+    height: 200px;
     position: absolute;
     z-index: 1;
 }

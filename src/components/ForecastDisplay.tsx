@@ -12,11 +12,11 @@ export default function ForecastDisplay({
       {forecastData.list.map((data) => {
         return (
           <div className="forecast-item">
-            <h3>{getTemperature(data.main.temp)}°C</h3>
+            <h2>{getTemperature(data.main.temp)}°C</h2>
             {data.dt_txt && (
               <>
-                <h3>{getDate(data.dt_txt)}</h3>
-                <h3>{getHour(data.dt_txt)}</h3>
+                <h4>{getDate(data.dt_txt)}</h4>
+                <h4>{getHour(data.dt_txt)}</h4>
               </>
             )}
           </div>

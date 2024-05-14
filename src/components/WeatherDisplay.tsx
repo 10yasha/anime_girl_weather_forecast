@@ -19,31 +19,31 @@ export default function WeatherDisplay({
 }: {
   weatherData: WeatherDataProps;
 }) {
+  const iconSize = 40;
+
   const iconChanger = (weather: string) => {
     let iconElement: React.ReactNode;
     let iconColor: string;
 
     switch (weather) {
       case "Rain":
-        iconElement = <BsFillCloudRainFill />;
+        iconElement = <BsFillCloudRainFill size={iconSize} />;
         iconColor = "#272829";
         break;
-
       case "Clear":
-        iconElement = <BsFillSunFill />;
+        iconElement = <BsFillSunFill size={iconSize} />;
         iconColor = "#FFC436";
         break;
       case "Clouds":
-        iconElement = <BsCloudyFill />;
+        iconElement = <BsCloudyFill size={iconSize} />;
         iconColor = "#102C57";
         break;
-
       case "Mist":
-        iconElement = <BsCloudFog2Fill />;
+        iconElement = <BsCloudFog2Fill size={iconSize} />;
         iconColor = "#279EFF";
         break;
       default:
-        iconElement = <TiWeatherPartlySunny />;
+        iconElement = <TiWeatherPartlySunny size={iconSize} />;
         iconColor = "#7B2869";
     }
 
@@ -57,33 +57,29 @@ export default function WeatherDisplay({
   return (
     <>
       <div className="weather-info">
-        <div className="icon">{iconChanger(weatherData.weather[0].main)}</div>
-        <h1>{getTemperature(weatherData.main.temp)}°C</h1>
+        <div className="icon-container">
+          {iconChanger(weatherData.weather[0].main)}
+        </div>
         <h2>{weatherData.weather[0].main}</h2>
+        <h1>{getTemperature(weatherData.main.temp)}°C</h1>
 
         <div className="additional-weather-info">
           <div className="additional-info-item">
             <WiHumidity className="additional-icon" />
-            <div className="humidity-info">
-              <h3>{weatherData.main.humidity} %</h3>
-              <p>Humidity</p>
-            </div>
+            <p>Humidity</p>
+            <h3>{weatherData.main.humidity} %</h3>
           </div>
 
           <div className="additional-info-item">
             <FiWind className="additional-icon" />
-            <div className="wind-info">
-              <h3>{weatherData.wind.speed} km/h</h3>
-              <p>Wind speed</p>
-            </div>
+            <p>Wind</p>
+            <h3>{weatherData.wind.speed} km/h</h3>
           </div>
 
           <div className="additional-info-item">
             <BiTachometer className="additional-icon" />
-            <div className="pressure-info">
-              <h3>{weatherData.main.pressure} mbar</h3>
-              <p>Pressure</p>
-            </div>
+            <p>Pressure</p>
+            <h3>{weatherData.main.pressure} mb</h3>
           </div>
         </div>
       </div>

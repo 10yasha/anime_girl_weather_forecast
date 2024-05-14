@@ -3,7 +3,7 @@
   flex-wrap: nowrap;
   overflow-x: auto;
   width: 700px;
-  height: 200px;
+  height: 140px;
   
 }
 
@@ -15,5 +15,9 @@
   text-align: center;
   margin: 5px;
   width: 150px;
-  height: 180px;
+  height: 130px;
+}
+
+.forecast-item > h4 {
+  margin: 0;
 }

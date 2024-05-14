@@ -14,7 +14,8 @@ export default function MapDisplay({ lat, lon }: { lat: number; lon: number }) {
 
   const style = {
     width: "100%",
-    height: "200px",
+    height: "160px",
+    margin: "20px",
   };
 
   return (
