@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import { APIProvider, Map } from "@vis.gl/react-google-maps";
 import "./MapDisplay.css";

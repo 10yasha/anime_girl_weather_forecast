@@ -1,6 +1,6 @@
 import React from "react";
 import "./WeatherDisplay.css";
-import { City, WeatherDataProps } from "../interfaces/Interfaces";
+import { WeatherDataProps } from "../interfaces/Interfaces";
 import { getTemperature } from "../utility/utility";
 
 import { WiHumidity } from "react-icons/wi";
