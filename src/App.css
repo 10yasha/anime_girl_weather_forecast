@@ -1,17 +1,18 @@
 .app {
-  width: 100vw;
-  height: 100vh;
   max-width:100%;
   display: flex;
   align-items: center;
   flex-direction: column;
   font-family: Verdana;
-  background-image: linear-gradient(25deg, #1147dc, #2cc5d0);
-  }
+}
+
 body {
   padding: 0;
   margin: 0;
-  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, #0fb9c6, #1181dc, #0fb9c6);
+  overflow-y: auto;
 }
 
 .middle-section {
