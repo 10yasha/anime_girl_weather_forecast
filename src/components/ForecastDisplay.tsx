@@ -15,8 +15,8 @@ export default function ForecastDisplay({
             <h2>{getTemperature(data.main.temp)}°C</h2>
             {data.dt_txt && (
               <>
-                <h4>{getDate(data.dt_txt)}</h4>
                 <h4>{getHour(data.dt_txt)}</h4>
+                <h4>{getDate(data.dt_txt)}</h4>
               </>
             )}
           </div>
