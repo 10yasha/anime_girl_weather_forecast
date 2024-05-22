@@ -10,11 +10,11 @@
 .forecast-info .forecast-item {
   flex: 0 0 auto;
   background-color: #ffffff7d;
-  border-radius: 12px;
+  border-radius: 5px;
   box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
   text-align: center;
   margin: 5px;
-  width: 150px;
+  width: 135px;
   height: 130px;
 }
 

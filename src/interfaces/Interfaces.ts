@@ -21,7 +21,7 @@ type MainSubField = {
   temp_min: number; // celsius
   temp_max: number; // celsius
   pressure: number; // millibars
-  humidity: number; // percent?
+  humidity: number; // percent
   [x: string]: any;
 };
 

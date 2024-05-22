@@ -56,14 +56,14 @@ export default function SearchBar({
 
   return (
     <div className="search">
-      <div className="searchInputs">
+      <div className="search-inputs">
         <input
           type="text"
           placeholder={placeholder}
           value={searchEntered}
           onChange={handleCitySearch}
         />
-        <div className="searchIcon">
+        <div className="search-icon">
           {searchEntered.length === 0 ? (
             <SearchIcon />
           ) : (
@@ -72,11 +72,12 @@ export default function SearchBar({
         </div>
       </div>
       {filteredCities.length != 0 && (
-        <div className="searchResult">
+        <div className="search-result">
           {filteredCities.map((val) => {
             return (
               <a
-                className="searchItem"
+                key={val.name + val.stateCode + val.countryCode}
+                className="search-item"
                 href="#"
                 onClick={() => {
                   handleClick(val);

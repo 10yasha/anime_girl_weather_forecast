@@ -11,7 +11,7 @@ export default function ForecastDisplay({
     <div className="forecast-info">
       {forecastData.list.map((data) => {
         return (
-          <div className="forecast-item">
+          <div className="forecast-item" key={data.dt_txt}>
             <h2>{getTemperature(data.main.temp)}°C</h2>
             {data.dt_txt && (
               <>

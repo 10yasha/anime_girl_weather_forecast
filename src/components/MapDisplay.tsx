@@ -1,27 +1,31 @@
 "use client";
 
-import React from "react";
-import {
-  APIProvider,
-  Map,
-  AdvancedMarker,
-  Pin,
-  InfoWindow,
-} from "@vis.gl/react-google-maps";
+import { useState, useEffect } from "react";
+import { APIProvider, Map } from "@vis.gl/react-google-maps";
+import "./MapDisplay.css";
 
 export default function MapDisplay({ lat, lon }: { lat: number; lon: number }) {
-  // const api_key: string = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+  const api_key: string = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
-  const style = {
-    width: "100%",
-    height: "160px",
-    margin: "20px",
-  };
+  const [currentLatLon, setCurrentLatLon] =
+    useState<google.maps.LatLngLiteral | null>(null);
+
+  useEffect(() => {
+    setCurrentLatLon({ lat: lat, lng: lon });
+  }, [lat, lon]);
 
   return (
-    <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
-      <div style={style}>
-        <Map zoom={9} center={{ lat: lat, lng: lon }}></Map>
+    <APIProvider apiKey={api_key}>
+      <div className="map-box">
+        {currentLatLon && (
+          <Map
+            defaultZoom={10}
+            center={{ lat: currentLatLon.lat, lng: currentLatLon.lng }}
+            onCenterChanged={(e) => {
+              setCurrentLatLon(e.detail.center);
+            }}
+          ></Map>
+        )}
       </div>
     </APIProvider>
   );

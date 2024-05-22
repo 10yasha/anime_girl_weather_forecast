@@ -43,10 +43,8 @@ export default function AnimeWeatherAnchor({
   }, [currentCity]);
 
   const getRandomGif = () => {
-    console.log("function ran");
-    const randomObject =
-      gifsArray[Math.floor(Math.random() * gifsArray.length)];
-    return randomObject;
+    const randomGif = gifsArray[Math.floor(Math.random() * gifsArray.length)];
+    return randomGif;
   };
 
   return (

@@ -48,7 +48,6 @@ export default function App() {
       const url =
         api_endpoint +
         `${endpoint}?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`;
-      console.log(url);
       const res = await axios.get(url);
 
       const data: WeatherDataProps | ForecastDataProps = res.data;

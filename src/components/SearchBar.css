@@ -1,4 +1,4 @@
-.searchInputs {
+.search-inputs {
   margin-top: 105px;
   display: flex;
 }
@@ -15,7 +15,7 @@
   width: 300px;
 }
 
-.searchIcon {
+.search-icon {
   height: 60px;
   width: 50px;
   background-color: white;
@@ -26,11 +26,11 @@
 input:focus {
   outline: none;
 }
-.searchIcon svg {
+.search-icon svg {
   font-size: 35px;
 }
 
-.searchResult {
+.search-result {
   margin-top: 5px;
   width: 300px;
   height: 200px;
@@ -42,11 +42,11 @@ input:focus {
   z-index: 2;
 }
 
-.searchResult::-webkit-scrollbar {
+.search-result::-webkit-scrollbar {
   display: none;
 }
 
-.searchResult .searchItem {
+.search-result .search-item {
   width: 100%;
   height: 50px;
   display: flex;
@@ -54,7 +54,7 @@ input:focus {
   color: black;
 }
 
-.searchItem p {
+.search-item p {
   margin-left: 10px;
 }
 a {

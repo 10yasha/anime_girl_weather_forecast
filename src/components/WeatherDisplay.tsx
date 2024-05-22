@@ -20,6 +20,7 @@ export default function WeatherDisplay({
   weatherData: WeatherDataProps;
 }) {
   const iconSize = 40;
+  const addIconSize = 25;
 
   const iconChanger = (weather: string) => {
     let iconElement: React.ReactNode;
@@ -65,21 +66,32 @@ export default function WeatherDisplay({
 
         <div className="additional-weather-info">
           <div className="additional-info-item">
-            <WiHumidity className="additional-icon" />
+            <WiHumidity className="additional-icon" size={addIconSize} />
             <p>Humidity</p>
-            <h3>{weatherData.main.humidity} %</h3>
+            <div className="additional-value">
+              <h3>{weatherData.main.humidity}%</h3>
+              <h3>
+                <br />
+              </h3>
+            </div>
           </div>
 
           <div className="additional-info-item">
-            <FiWind className="additional-icon" />
+            <FiWind className="additional-icon" size={addIconSize} />
             <p>Wind</p>
-            <h3>{weatherData.wind.speed} km/h</h3>
+            <div className="additional-value">
+              <h3>{weatherData.wind.speed}</h3>
+              <h3>km/h</h3>
+            </div>
           </div>
 
           <div className="additional-info-item">
-            <BiTachometer className="additional-icon" />
+            <BiTachometer className="additional-icon" size={addIconSize} />
             <p>Pressure</p>
-            <h3>{weatherData.main.pressure} mb</h3>
+            <div className="additional-value">
+              <h3>{weatherData.main.pressure}</h3>
+              <h3>mb</h3>
+            </div>
           </div>
         </div>
       </div>

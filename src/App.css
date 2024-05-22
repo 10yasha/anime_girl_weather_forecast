@@ -1,12 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
 .app {
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
-  font-family: "Nunito", sans-serif;
-  background-image: linear-gradient(45deg, #000876, #2cc5d0);
+  font-family: Verdana;
+  background-image: linear-gradient(25deg, #000876, #2cc5d0);
 }
 body {
   padding: 0;
@@ -36,13 +35,7 @@ body {
   margin: 20px;
 }
 
-/* .searched-location {
-display: flex;
-align-items: center;
-flex-direction: column;
+.searched-city-name > h1 {
+  font-size: 35px;
+  line-height: 1;
 }
-
-.icon {
-font-size: 5rem;
-} */
-
